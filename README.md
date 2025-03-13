@@ -41,7 +41,7 @@ df
 
 df.info()
 
-![Screenshot 2025-03-13 160759](https://github.com/user-attachments/assets/7d794af1-9fde-491d-ad15-0a2b76072b73)
+![Screenshot 2025-03-13 160759](https://github.com/user-attachments/assets/18b0e0ea-5ef5-45aa-9303-aa01d3cd3769)
 
 df.describe()
 
