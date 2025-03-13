@@ -1,6 +1,10 @@
 # Exno:1
 Data Cleaning Process
 
+NAME:VIMALA RANI A
+
+REG NO:212223040240
+
 # AIM
 To read the given data and perform data cleaning and save the cleaned data to a file.
 
@@ -25,111 +29,151 @@ STEP 6: Use zscore of to remove outliers
 #### READ CSV FILE 
    
 import pandas as pd
+
 df=pd.read_csv('Loan_data.csv')
+
 df
 
-![image](https://github.com/user-attachments/assets/cb677b6c-086a-46ec-87d9-2a3a736d1cca)
+![Screenshot 2025-03-13 154512](https://github.com/user-attachments/assets/159aa56c-2171-4e35-9836-bffa5f694964)
+
 #### DISPLAY THE INFORMATION ABOUT CSV AND RUN THE BASIC DATA ANALYSIS FUNCTIONS
 
 
 df.info()
 
-![image](https://github.com/user-attachments/assets/6342c7a3-96b1-49f9-9dc1-3d642acfa0c7)
-
+![Screenshot 2025-03-13 154526](https://github.com/user-attachments/assets/80b5c286-dead-4490-b5b5-501c8b66b74c)
 
 df.describe()
 
-![Screenshot 2025-03-12 205741](https://github.com/user-attachments/assets/2e5196ce-2086-43c2-88ea-c850ca86f18f)
+![Screenshot 2025-03-13 154539](https://github.com/user-attachments/assets/c5d90215-84e4-4a7a-87e3-16cb56641bd2)
+
 #### CHECK OUT NULL VALUES IN DATA SET USING FUNCTION
 
 df.isnull()
 
-![Screenshot 2025-03-12 205944](https://github.com/user-attachments/assets/40256420-d6b8-4682-a1b7-a4d853048bd5)
+![Screenshot 2025-03-13 154552](https://github.com/user-attachments/assets/877ebd35-8b1c-4806-90ca-2e14b93e95da)
+
 #### DISPLAY THE SUM ON NULL VALUES IN EACH ROWS
 
 df.isnull().sum()
 
-![Screenshot 2025-03-12 210142](https://github.com/user-attachments/assets/8d18b6ae-a27e-4860-b9f1-9cc19826da56)
+![Screenshot 2025-03-13 154603](https://github.com/user-attachments/assets/aa5be461-fa66-481d-bf7f-e7bed73a8d33)
+
 #### DROP NULL VALUES
 
 df_dropped=df.dropna()
+
 df_dropped
 
-![Screenshot 2025-03-12 210251](https://github.com/user-attachments/assets/830b54d2-51a2-4ecf-ae9b-34202e51121d)
+![Screenshot 2025-03-13 154613](https://github.com/user-attachments/assets/6aa7bd01-938e-4030-9ea7-ace39d99c057)
+
 #### FILL NULL VALUES WITH CONSTANT VALUE "O"
      
 
 df_fill_0=df.fillna(0)
+
 df_fill_0
 
-![Screenshot 2025-03-12 210541](https://github.com/user-attachments/assets/8159e4c6-d3be-4ea8-bd0a-5aae132bf868)
+![Screenshot 2025-03-13 154625](https://github.com/user-attachments/assets/3d784f9e-01f6-42e7-a7bc-4041e363848a)
+
 #### FILL NULL VALUES WITH ffill or bfill METHOD
 
 df_ffill=df.ffill()
+
 df_ffill
 
-![Screenshot 2025-03-12 210650](https://github.com/user-attachments/assets/a5136bd3-67d9-4cbc-a2a8-572a5949f949)
+![Screenshot 2025-03-13 154637](https://github.com/user-attachments/assets/c3390e62-e72c-4d72-a541-d543693aa3db)
+
 
 
 
 df_bfill=df.bfill()
+
 df_bfill
 
-![Screenshot 2025-03-12 210748](https://github.com/user-attachments/assets/5b0a9387-2f22-4755-aa0c-bd46cc2d3037)
+![Screenshot 2025-03-13 154650](https://github.com/user-attachments/assets/1d26521c-04a5-487f-965b-37fb545b8c9d)
+
 #### CALCULATE MEAN VALUE OF A COLUMN AND FILL IT WITH NULL VALUES
 
 df_new=df
+
 df_new['LoanAmount']=df['LoanAmount'].fillna((df['LoanAmount']).mean)
+
 df_new['Loan_Amount_Term']=df['Loan_Amount_Term'].fillna((df['Loan_Amount_Term']).mean)
+
 df_new
 
-![Screenshot 2025-03-12 211027](https://github.com/user-attachments/assets/fc4297da-3843-431c-b0db-aac6afae1c30)
+
+![Screenshot 2025-03-13 154702](https://github.com/user-attachments/assets/cd622433-f438-40df-937e-7d4c55d5b3e9)
+
 #### DROP NULL VALUES
      
 
 
 df_new.dropna(axis=0)
 
-![Screenshot 2025-03-12 211147](https://github.com/user-attachments/assets/b5c0f382-9e83-4fda-995d-439169d6f452)
+![Screenshot 2025-03-13 154714](https://github.com/user-attachments/assets/5c0a209d-763f-46a0-b5c0-e1cc219ceac2)
 
 ## Outlier Detection and Removal
 
 import pandas as pd
+
 import seaborn as sns
+
 age=[1,3,28,27,25,92,30,39,40,50,26,24,29,94]
+
 af=pd.DataFrame(age)
+
 af
 
-![Screenshot 2025-03-12 211733](https://github.com/user-attachments/assets/c1ec6ba9-ed36-49cc-b328-6f8e309581af)
+![Screenshot 2025-03-13 154728](https://github.com/user-attachments/assets/c14a0c29-c39e-41f1-a2c7-d1de926cadc3)
+
 #### USE BOXPLOT FUNCTION HERE TO DETECT OUTLIER
 
 
 sns.boxplot(data=af)
 
-![Screenshot 2025-03-12 211817](https://github.com/user-attachments/assets/005d6813-9cda-4a92-9e5f-4cd29f721192)
+![Screenshot 2025-03-13 154739](https://github.com/user-attachments/assets/151ddb61-0f95-4921-8d06-c94f5bb91242)
+
 #### PERFORM IQR METHOD AND DETECT OUTLIER VALUES
 
 import numpy as np
+
 Q1=np.percentile(age,25)
+
 Q2=np.percentile(age,50)
+
 Q3=np.percentile(age,75)
 
 
+
 ivr=Q3-Q1
+
 lower_bound=Q1-1.5*IQR
+
 upper_bound=Q3+1.5*IQR
+
 outliers=af[(af<lower_bound) | (af>upper_bound) ]
 
 
+
 print("Quantile 1",Q1)
+
 print("Quantile 2",Q2)
+
 print("Quantile 3",Q3)
+
 print("Inter Quartile Range",IQR)
+
 print("Lower Bound",lower_bound)
+
 print("Upper Bound",upper_bound)
+
 print("Outliers",outliers)
 
-![Screenshot 2025-03-12 212108](https://github.com/user-attachments/assets/96295492-fe39-40a7-9931-56a6c9739c65)
+
+![Screenshot 2025-03-13 154753](https://github.com/user-attachments/assets/4808da3e-6e04-43c7-aa08-9e74b58734a2)
+
 #### REMOVE OUTLIERS
 
 af=af[(af>=lower_bound) & (af<=upper_bound)]
@@ -137,45 +181,58 @@ af.dropna()
 print("After removing outliers")
 af
 
-![Screenshot 2025-03-12 212250](https://github.com/user-attachments/assets/188b7ac3-7e1b-4a37-8a5e-a5274409dc6b)
+![Screenshot 2025-03-13 154803](https://github.com/user-attachments/assets/07d0ab7a-bd52-4063-b8f9-8eefb26e3e8a)
+
 #### USE BOXPLOT FUNCTION HERE TO CHECK OUTLIER IS REMOVED
 
 
 sns.boxplot(data=af)
 
-![image](https://github.com/user-attachments/assets/b9c8bc6d-2102-4ca6-b5d4-53c65738b586)
+![Screenshot 2025-03-13 154815](https://github.com/user-attachments/assets/601c33fb-7f0d-4fc8-a18c-f81892740d9f)
 
 #### USE BOXPLOT FUNCTION HERE TO DETECT OUTLIER
 
 from scipy import stats
+
 data=[1,12,15,18,21,24,27,30,33,36,39,42,45,48,51,54,57,60,63,66,69,72,75,78,81,84,87,90,93,96,99,158]
+
 df=pd.DataFrame(data)
+
 sns.boxplot(data=df)
 
-![image](https://github.com/user-attachments/assets/9d7f81ad-2ad1-41bc-bb47-059683b81f4e)
+
+![Screenshot 2025-03-13 154827](https://github.com/user-attachments/assets/095f1b1b-3dc2-49f7-bcff-9a5d176eb832)
 
 #### PERFORM Z SCORE METHOD AND DETECT OUTLIER VALUES
 
 z=np.abs(stats.zscore(data))
+
 print("Outlier values:")
+
 outliers=df[z>3]
+
 outliers
 
-![image](https://github.com/user-attachments/assets/a4274bdd-9fe7-4c6b-8f3c-645276230b1d)
+![Screenshot 2025-03-13 154839](https://github.com/user-attachments/assets/fd1b31e0-49fe-4a9c-b987-75c75dd1b695)
 
 #### REMOVE OUTLIERS
 
 cleaned_df=df[z<3]
+
 print("After removing outliers")
+
 cleaned_df
 
-![Screenshot 2025-03-12 220938](https://github.com/user-attachments/assets/51987019-80da-4500-a190-3f29f00edcd5)
+
+![Screenshot 2025-03-13 154853](https://github.com/user-attachments/assets/59dc72df-87cc-4261-a536-3b76d680fd0d)
+
 
 #### USE BOXPLOT FUNCTION HERE TO CHECK OUTLIER IS REMOVED
 
 sns.boxplot(data=cleaned_df)
 
-![Screenshot 2025-03-12 221025](https://github.com/user-attachments/assets/dbadfda8-fac1-4505-bfef-a39220b3cbd0)
+![Screenshot 2025-03-13 154904](https://github.com/user-attachments/assets/84d3b6f6-30be-4618-81c1-225c944b643a)
+
 
 
 
